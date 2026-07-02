@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -277,7 +277,7 @@ footer{ padding:44px 0 28px; position:relative; z-index:1; }
           necessidade: document.getElementById('necessidade').value
         };
         
-        fetch('backend/salvar_orcamento.php', {
+        fetch('/api/salvar_orcamento', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -287,7 +287,7 @@ footer{ padding:44px 0 28px; position:relative; z-index:1; }
         .then(response => response.json())
         .then(data => {
           btn.disabled = false;
-          btn.textContent = 'Enviar solicitaÃ§Ã£o';
+          btn.textContent = 'Enviar solicitação';
           feedback.style.display = 'block';
           
           if (data.success) {
@@ -305,7 +305,7 @@ footer{ padding:44px 0 28px; position:relative; z-index:1; }
         })
         .catch(err => {
           btn.disabled = false;
-          btn.textContent = 'Enviar solicitaÃ§Ã£o';
+          btn.textContent = 'Enviar solicitação';
           feedback.style.display = 'block';
           feedback.style.background = 'rgba(255, 99, 71, 0.15)';
           feedback.style.border = '1px solid #ff6347';
