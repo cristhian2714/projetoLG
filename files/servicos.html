@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serviços | LG Serviços</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#eaf1ff;
+  --paper:#060a14;
+  --paper-2:#0c1526;
+  --panel:#0a0f1c;
+  --amber:#3aa0ff;
+  --amber-deep:#7ad6ff;
+  --line: rgba(122,214,255,0.22);
+  --line-soft: rgba(122,214,255,0.10);
+  --text-dim:#8ea0c2;
+  --glow: rgba(58,160,255,0.35);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter', sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:44px 44px;
+  position:relative;
+}
+body::before{
+  content:''; position:fixed; top:-20%; left:-10%; width:60vw; height:60vw; z-index:0; pointer-events:none;
+  background:radial-gradient(circle, var(--glow), transparent 65%);
+  opacity:0.5; filter:blur(40px);
+}
+body::after{
+  content:''; position:fixed; bottom:-25%; right:-15%; width:55vw; height:55vw; z-index:0; pointer-events:none;
+  background:radial-gradient(circle, rgba(122,214,255,0.28), transparent 65%);
+  opacity:0.45; filter:blur(40px);
+}
+h1,h2,h3{ font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em; }
+.mono{ font-family:'JetBrains Mono', monospace; }
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 32px; position:relative; z-index:1;}
+
+header{ position:sticky; top:0; z-index:100; background:rgba(6,10,20,0.72); backdrop-filter:blur(16px); border-bottom:1px solid var(--line); }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 32px; max-width:1180px; margin:0 auto; position:relative; z-index:1; }
+.brand{display:flex; align-items:center; gap:12px;}
+.brand-mark{ width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk'; font-weight:800; font-size:1rem; background:linear-gradient(135deg, var(--amber), var(--amber-deep)); color:#04101f; box-shadow:0 0 24px var(--glow); }
+.brand-txt{font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem; line-height:1.1;}
+.brand-txt small{display:block; font-family:'JetBrains Mono'; font-size:0.62rem; letter-spacing:0.1em; color:var(--text-dim); text-transform:uppercase; font-weight:400; margin-top:2px;}
+nav.links{display:flex; gap:4px; font-family:'JetBrains Mono'; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.04em;}
+nav.links a{padding:8px 16px; border-radius:100px; color:var(--text-dim); transition:background .2s, color .2s;}
+nav.links a:hover, nav.links a.active{background:rgba(122,214,255,0.12); color:var(--amber-deep);}
+.nav-cta{ padding:10px 22px; border-radius:100px; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); color:#04101f; font-family:'JetBrains Mono'; font-weight:600; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.04em; box-shadow:0 0 24px var(--glow); transition:transform .2s, box-shadow .2s; }
+.nav-cta:hover{transform:translateY(-2px); box-shadow:0 4px 30px var(--glow);}
+
+.page-hero{ padding:72px 32px 52px; border-bottom:1px solid var(--line); position:relative; z-index:1; }
+.page-hero-inner{ max-width:1180px; margin:0 auto; }
+.ticket-id{ font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--amber-deep); letter-spacing:0.1em; display:inline-flex; align-items:center; gap:8px; }
+.ticket-id::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--amber-deep); box-shadow:0 0 10px var(--amber-deep); }
+.page-hero h1{ font-size:clamp(2.1rem, 4.6vw, 3.6rem); font-weight:800; line-height:1.05; margin:16px 0 16px; max-width:800px; }
+.page-hero h1 u{ text-decoration:none; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.page-hero p.lead{ color:var(--text-dim); font-size:1.02rem; line-height:1.65; max-width:540px; }
+
+.hero{ padding:80px 32px 0; position:relative; z-index:1; }
+.hero-inner{ max-width:1180px; margin:0 auto; }
+.hero-top{ display:flex; justify-content:space-between; align-items:flex-end; gap:40px; border-bottom:1px solid var(--line); padding-bottom:44px; flex-wrap:wrap; }
+.hero h1{ font-size:clamp(2.4rem, 5.2vw, 4.4rem); font-weight:800; line-height:1.02; margin:18px 0 22px; max-width:840px; }
+.hero h1 u{ text-decoration:none; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero p.lead{ color:var(--text-dim); font-size:1.06rem; line-height:1.7; max-width:500px; margin-bottom:32px; }
+.hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+.btn-primary{ padding:16px 30px; border-radius:100px; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); color:#04101f; font-family:'JetBrains Mono'; font-weight:600; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.04em; display:inline-block; box-shadow:0 0 28px var(--glow); transition:transform .2s, box-shadow .2s; }
+.btn-primary:hover{transform:translateY(-3px); box-shadow:0 8px 34px var(--glow);}
+.btn-ghost{ padding:16px 30px; border-radius:100px; border:1px solid var(--line); color:var(--ink); font-family:'JetBrains Mono'; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.04em; display:inline-block; transition:background .2s, border-color .2s; }
+.btn-ghost:hover{background:rgba(122,214,255,0.08); border-color:var(--amber-deep);}
+
+.hero-stats{ display:grid; grid-template-columns:repeat(4,1fr); }
+.hero-stats div{ border-left:1px solid var(--line); padding:20px 22px; }
+.hero-stats div:first-child{border-left:none;}
+.hero-stats b{ font-family:'Space Grotesk'; font-weight:800; font-size:2.1rem; display:block; background:linear-gradient(120deg, var(--ink), var(--amber-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-stats span{ font-family:'JetBrains Mono'; font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.04em; }
+
+section{ padding:88px 0; border-bottom:1px solid var(--line); position:relative; z-index:1; }
+section:last-of-type{ border-bottom:none; }
+.sec-label{ font-family:'JetBrains Mono'; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--amber-deep); display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.sec-label::before{ content:''; width:26px; height:2px; background:var(--amber-deep); box-shadow:0 0 8px var(--amber-deep); }
+.sec-head h2{ font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; max-width:640px; }
+.sec-head p{ color:var(--text-dim); margin-top:14px; max-width:560px; line-height:1.7; }
+
+.about{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:0; border:1px solid var(--line); border-radius:20px; overflow:hidden; background:rgba(255,255,255,0.02); }
+.about-figure{ padding:44px; border-right:1px solid var(--line); background:linear-gradient(160deg, var(--panel), var(--paper-2)); display:flex; flex-direction:column; justify-content:space-between; }
+.about-figure .founded-label{ font-family:'JetBrains Mono'; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); }
+.about-figure .year{ font-family:'Space Grotesk'; font-size:5rem; font-weight:800; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1; margin-top:10px; }
+.about-figure .year-lbl{ font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--text-dim); margin-top:8px; }
+.founder-list{ margin-top:30px; }
+.founder-list div{ display:flex; justify-content:space-between; padding:12px 0; border-top:1px solid var(--line-soft); font-size:0.85rem; }
+.founder-list div span{ font-family:'JetBrains Mono'; font-size:0.7rem; color:var(--text-dim); text-transform:uppercase; }
+.about-text{ padding:44px 48px; }
+.about-text p{ color:var(--text-dim); line-height:1.8; margin-bottom:16px; font-size:0.98rem; }
+.about-text p b{color:var(--ink);}
+
+.values-grid{ display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); border-top:none; border-radius:0 0 20px 20px; overflow:hidden; background:rgba(255,255,255,0.02); }
+.value-card{ padding:32px; border-right:1px solid var(--line); transition:background .25s; }
+.value-card:hover{ background:rgba(122,214,255,0.06); }
+.value-card:last-child{ border-right:none; }
+.value-card .idx{ font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--amber-deep); }
+.value-card h3{ font-size:1.05rem; font-weight:700; margin:10px 0 8px; }
+.value-card p{ color:var(--text-dim); font-size:0.9rem; line-height:1.6; }
+
+/* Estilos para abas de serviços */
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 24px;
+}
+.tabs-nav {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+  border-bottom: 1px solid var(--line);
+}
+.tabs-nav::-webkit-scrollbar {
+  height: 6px;
+}
+.tabs-nav::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 10px;
+}
+.tab-btn {
+  padding: 14px 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+.tab-btn:hover {
+  background: rgba(122, 214, 255, 0.08);
+  color: var(--ink);
+  border-color: var(--amber-deep);
+}
+.tab-btn.active {
+  background: linear-gradient(120deg, rgba(58, 160, 255, 0.15), rgba(122, 214, 255, 0.15));
+  color: var(--amber-deep);
+  border-color: var(--amber-deep);
+  box-shadow: 0 0 15px rgba(58, 160, 255, 0.25);
+}
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+.tab-panel.active {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: stretch;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.panel-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.panel-info h2 {
+  font-size: 2.2rem;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.panel-info p {
+  color: var(--text-dim);
+  line-height: 1.8;
+  font-size: 1.02rem;
+}
+.panel-features {
+  background: linear-gradient(160deg, var(--panel), var(--paper-2));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.feature-image-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--line);
+}
+.feature-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.panel-features:hover .feature-img {
+  transform: scale(1.06);
+}
+.panel-features h3 {
+  font-size: 1.1rem;
+  color: var(--amber-deep);
+  margin-bottom: 22px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.feature-list li::before {
+  content: '✓';
+  color: var(--amber-deep);
+  font-weight: 700;
+}
+@media(max-width: 900px) {
+  .tab-panel.active {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+
+.coverage{ display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:20px; overflow:hidden; background:rgba(255,255,255,0.02); }
+.video-frame{ aspect-ratio:16/9; border-right:1px solid var(--line); background:#000; }
+.video-frame iframe{ width:100%; height:100%; border:0; }
+.coverage-text{ padding:48px; display:flex; flex-direction:column; justify-content:center; }
+.stamp{ align-self:flex-start; margin-top:22px; padding:11px 18px; border-radius:100px; border:1px solid var(--line); font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--amber-deep); background:rgba(122,214,255,0.06); }
+
+.client-table{ border-top:1px solid var(--line); border-left:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr); border-radius:16px; overflow:hidden; }
+.client-cell{ border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:28px 20px; font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem; display:flex; align-items:center; justify-content:center; text-align:center; min-height:94px; color:var(--text-dim); transition:color .2s, background .2s; }
+.client-cell:hover{ color:var(--amber-deep); background:rgba(122,214,255,0.06); }
+
+.contact-wrap{ display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:20px; overflow:hidden; background:rgba(255,255,255,0.02); }
+.contact-info{ padding:48px; border-right:1px solid var(--line); background:linear-gradient(160deg, var(--panel), var(--paper-2)); }
+.contact-info h2{ font-size:1.9rem; margin-bottom:14px; }
+.contact-info p{ color:var(--text-dim); line-height:1.7; margin-bottom:26px; }
+.info-line{ padding:12px 0; border-top:1px solid var(--line-soft); font-size:0.9rem; }
+.info-line .k{ font-family:'JetBrains Mono'; font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:4px; }
+form{ padding:48px; display:flex; flex-direction:column; gap:16px; }
+form label{ font-family:'JetBrains Mono'; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-dim); margin-bottom:-10px; }
+form input, form textarea, form select{ background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:10px; padding:12px 14px; color:var(--ink); font-family:'Inter'; font-size:0.95rem; }
+form input:focus, form textarea:focus, form select:focus{ outline:none; border-color:var(--amber-deep); box-shadow:0 0 0 3px rgba(122,214,255,0.15); }
+form button{ margin-top:8px; padding:16px; border-radius:10px; border:none; cursor:pointer; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); color:#04101f; font-family:'JetBrains Mono'; font-weight:700; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.05em; box-shadow:0 0 24px var(--glow); transition:transform .2s; }
+form button:hover{ transform:translateY(-2px); }
+
+.faq-list{ border-top:1px solid var(--line); }
+.faq-row{ padding:22px 0; border-bottom:1px solid var(--line); }
+.faq-row h3{ font-size:0.98rem; font-weight:700; margin-bottom:8px; }
+.faq-row p{ color:var(--text-dim); font-size:0.9rem; line-height:1.6; max-width:640px; }
+
+footer{ padding:44px 0 28px; position:relative; z-index:1; }
+.foot-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:26px; margin-bottom:30px; }
+.foot-brand p{ color:var(--text-dim); font-size:0.84rem; margin-top:10px; max-width:280px; line-height:1.6; }
+.foot-cols{ display:flex; gap:60px; flex-wrap:wrap; font-family:'JetBrains Mono'; }
+.foot-col h4{ font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); margin-bottom:14px; }
+.foot-col a{ display:block; font-size:0.82rem; margin-bottom:10px; color:var(--text-dim); }
+.foot-col a:hover{ color:var(--amber-deep); }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-top:1px solid var(--line); padding-top:22px; font-family:'JetBrains Mono'; font-size:0.72rem; color:var(--text-dim); }
+.social-row{ display:flex; gap:0; }
+.social-row a{ padding:6px 14px; border-left:1px solid var(--line-soft); text-transform:uppercase; color:var(--text-dim); }
+.social-row a:hover{ color:var(--amber-deep); }
+
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+@media(max-width:900px){
+  nav.links{ display:none; }
+  .about{ grid-template-columns:1fr; }
+  .about-figure{ border-right:none; border-bottom:1px solid var(--line); }
+  .values-grid{ grid-template-columns:1fr; }
+  .value-card{ border-right:none; border-bottom:1px solid var(--line); }
+  .service-row{ grid-template-columns:44px 1fr; }
+  .service-row p{ grid-column:2/3; }
+  .coverage{ grid-template-columns:1fr; }
+  .video-frame{ border-right:none; border-bottom:1px solid var(--line); }
+  .client-table{ grid-template-columns:repeat(2,1fr); }
+  .contact-wrap{ grid-template-columns:1fr; }
+  .contact-info{ border-right:none; border-bottom:1px solid var(--line); }
+  .hero-stats{ grid-template-columns:repeat(2,1fr); }
+  .hero-stats div:nth-child(3){ border-left:none; }
+}
+@media(max-width:560px){
+  .wrap{ padding:0 18px; }
+  .hero{ padding:56px 18px 0; }
+  .page-hero{ padding:48px 18px 40px; }
+}
+@media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">LG</div>
+      <div class="brand-txt">LG Serviços<small>Facilities &amp; Conservação</small></div>
+    </a>
+    <nav class="links">
+      <a href="index.html" class="">Início</a>
+      <a href="sobre.html" class="">Sobre nós</a>
+      <a href="servicos.html" class="active">Ver serviços</a>
+      <a href="orcamento.html" class="">Orçamento</a>
+    </nav>
+    <a href="orcamento.html" class="nav-cta">Solicitar orçamento</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner reveal in">
+    <span class="ticket-id">FICHA DE SERVIÇOS — 09 FRENTES</span>
+    <h1>Uma operação, <u>nove frentes</u> de atuação.</h1>
+    <p class="lead">Cada serviço abaixo é executado por equipe própria, uniformizada e supervisionada — sem intermediários.</p>
+  </div>
+</section>
+
+<section style="border-bottom:none;">
+  <div class="wrap">
+    <div class="tabs-container reveal">
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="terceirizacao">Terceirização de Serviços</button>
+        <button class="tab-btn" data-tab="fachada">Limpeza de Fachada</button>
+        <button class="tab-btn" data-tab="pos-obra">Limpeza Pós Obra</button>
+        <button class="tab-btn" data-tab="portaria">Portaria &amp; Acesso</button>
+        <button class="tab-btn" data-tab="recepcao">Recepção Terceirizada</button>
+        <button class="tab-btn" data-tab="seguranca">Segurança &amp; Vigilância</button>
+      </div>
+
+      <!-- Tab Content 1: Terceirização -->
+      <div class="tab-panel active" id="terceirizacao">
+        <div class="panel-info">
+          <h2>Terceirização de Serviços de Limpeza e Conservação</h2>
+          <p>Localizada na cidade de São Bernardo do Campo, a LG Serviços atende todo ABC e a Grande São Paulo - SP.</p>
+          <p>Além de economicamente vantajosa, a terceirização de limpeza e conservação é essencial para garantir um ambiente limpo e agradável, atendendo plenamente às expectativas de seus clientes e visitantes.</p>
+          <p>A contratação de uma empresa terceirizada especializada proporciona uma rotina de higienização adequada às necessidades de cada espaço, tornando-os muito mais atraentes, funcionais e produtivos.</p>
+        </div>
+        <div class="panel-features">
+          <div class="feature-image-wrapper">
+            <img src="../imagem/tercerizacao.avif" alt="Terceirização de Serviços" class="feature-img">
+          </div>
+          <h3>Nossos diferenciais</h3>
+          <ul class="feature-list">
+            <li>Rotina de limpeza adaptada às suas necessidades</li>
+            <li>Profissionais qualificados e constantemente treinados</li>
+            <li>Supervisão operacional ativa e constante</li>
+            <li>Redução de custos trabalhistas e operacionais</li>
+            <li>Uso racional de produtos e equipamentos</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Fachada -->
+      <div class="tab-panel" id="fachada">
+        <div class="panel-info">
+          <h2>Limpeza de Fachada Profissional</h2>
+          <p>A limpeza de fachada é um serviço essencial que remove manchas, impurezas e marcas causadas pela ação do tempo, clima e poluição.</p>
+          <p>Nosso objetivo é evidenciar a superfície original da área externa de prédios ou edifícios, melhorando radicalmente o visual do estabelecimento e agregando maior valor comercial ao seu negócio.</p>
+          <p>Como se trata de um trabalho executado em altura, nossos profissionais são devidamente equipados e altamente treinados para atuar com o máximo cuidado, respeitando rigorosamente todas as normas de segurança do trabalho (NR-35).</p>
+        </div>
+        <div class="panel-features">
+          <div class="feature-image-wrapper">
+            <img src="../imagem/limpeza.avif" alt="Limpeza de Fachada" class="feature-img">
+          </div>
+          <h3>Equipe &amp; Equipamentos</h3>
+          <ul class="feature-list">
+            <li>Profissionais 100% habilitados para execução de serviços em altura</li>
+            <li>Equipamentos de proteção individual (EPIs) de última geração</li>
+            <li>Uso especializado de andaimes e plataformas elevatórias</li>
+            <li>Produtos químicos adequados para remoção de fuligem e sujeira pesada</li>
+            <li>Preservação da integridade física dos revestimentos</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: Pós Obra -->
+      <div class="tab-panel" id="pos-obra">
+        <div class="panel-info">
+          <h2>Limpeza Pós-Obra Completa</h2>
+          <p>Atendemos todo o ABC e a Grande São Paulo - SP, oferecendo serviços de limpeza técnica pós-obra com alto padrão de qualidade.</p>
+          <p>Contamos com uma equipe qualificada e com ferramentas específicas para realizar uma higienização profunda, removendo todos os vestígios da construção sem causar qualquer risco ou dano ao seu ambiente novo.</p>
+          <p>Deixando a limpeza pós-obra conosco, você se livra da preocupação com a bagunça pesada e foca apenas em curtir e desfrutar do seu novo espaço.</p>
+        </div>
+        <div class="panel-features">
+          <div class="feature-image-wrapper">
+            <img src="../imagem/limpezaobra.jpg" alt="Limpeza Pós Obra" class="feature-img">
+          </div>
+          <h3>O que removemos</h3>
+          <ul class="feature-list">
+            <li>Restos de materiais de construção e gesso</li>
+            <li>Respingos e manchas de tinta</li>
+            <li>Poeira fina acumulada em todas as frestas</li>
+            <li>Colas, adesivos e películas de proteção de pisos e vidros</li>
+            <li>Remoção e destinação adequada de pequenos entulhos</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content 4: Portaria -->
+      <div class="tab-panel" id="portaria">
+        <div class="panel-info">
+          <h2>Portaria e Controle de Acesso</h2>
+          <p>Oferecemos serviços especializados de portaria e controle de acesso para empresas, edifícios comerciais e condomínios residenciais na Grande São Paulo e ABC.</p>
+          <p>De forma criteriosa, nossos porteiros executam o trabalho de controle com extrema cordialidade, simpatia e atenção total.</p>
+          <p>Nossos profissionais são capacitados para seguir à risca os procedimentos de identificação de visitantes, recebimento de correspondências e autorização de entrada, operando as principais ferramentas tecnológicas de controle de acesso do mercado.</p>
+        </div>
+        <div class="panel-features">
+          <div class="feature-image-wrapper">
+            <img src="../imagem/portaria.avif" alt="Portaria &amp; Controle de Acesso" class="feature-img">
+          </div>
+          <h3>Foco operacional</h3>
+          <ul class="feature-list">
+            <li>Identificação criteriosa de visitantes e prestadores de serviços</li>
+            <li>Protocolos rígidos de autorização de entrada</li>
+            <li>Cordialidade e postura profissional exemplar</li>
+            <li>Operação de sistemas informatizados de acesso</li>
+            <li>Registro e triagem segura de correspondências e encomendas</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content 5: Recepção -->
+      <div class="tab-panel" id="recepcao">
+        <div class="panel-info">
+          <h2>Recepção Terceirizada de Alta Performance</h2>
+          <p>A recepção é a porta de entrada da sua empresa. Sabendo disso, oferecemos profissionais competentes, qualificados e cordiais para fazer a gestão de entrada de seu negócio com o melhor custo-benefício.</p>
+          <p>Nossos colaboradores recebem treinamento específico alinhado aos valores e posturas da sua organização, garantindo que o primeiro contato de seus clientes seja impecável e acolhedor.</p>
+        </div>
+        <div class="panel-features">
+          <div class="feature-image-wrapper">
+            <img src="../imagem/recepcao.avif" alt="Recepção Terceirizada" class="feature-img">
+          </div>
+          <h3>Rotinas administradas</h3>
+          <ul class="feature-list">
+            <li>Rotinas administrativas gerais de recepção</li>
+            <li>Atendimento e direcionamento telefônico profissional</li>
+            <li>Prestação de informações precisas a visitantes</li>
+            <li>Triagem, protocolo e distribuição de correspondências</li>
+            <li>Suporte na recepção de eventos, feiras e congressos</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content 6: Segurança -->
+      <div class="tab-panel" id="seguranca">
+        <div class="panel-info">
+          <h2>Segurança &amp; Vigilância Patrimonial</h2>
+          <p>Sabemos que a proteção do seu patrimônio e a integridade física das pessoas são prioridades absolutas.</p>
+          <p>A LG Serviços investe pesado no recrutamento e treinamento constante de equipes especializadas, garantindo rondas qualificadas e monitoramento ativo do seu espaço — seja em empresas, condomínios ou áreas de entretenimento e lazer.</p>
+          <p>Nosso objetivo principal é proporcionar total tranquilidade para seus clientes, colaboradores, condôminos e visitantes, mitigando riscos e agindo preventivamente contra incidentes.</p>
+        </div>
+        <div class="panel-features">
+          <div class="feature-image-wrapper">
+            <img src="../imagem/seguranca.jpg" alt="Segurança e Vigilância" class="feature-img">
+          </div>
+          <h3>Pilares de segurança</h3>
+          <ul class="feature-list">
+            <li>Profissionais rigorosamente treinados e bem equipados</li>
+            <li>Foco total na prevenção de perdas e intrusões</li>
+            <li>Monitoramento constante de perímetros e áreas internas</li>
+            <li>Segurança sob medida para condomínios, varejo e lazer</li>
+            <li>Prontidão operacional e resposta imediata a ocorrências</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Script para o funcionamento dinâmico das Abas de Serviços
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Remover classe ativa dos botões e painéis
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+    // Adicionar classe ativa no botão clicado
+    btn.classList.add('active');
+
+    // Ativar painel correspondente
+    const tabId = btn.getAttribute('data-tab');
+    document.getElementById(tabId).classList.add('active');
+  });
+});
+</script>
+
+
+<section style="border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:30px;">
+      <span class="sec-label">Próximo passo</span>
+      <h2>Não sabe qual serviço encaixa no seu caso?</h2>
+      <p>Descreva o espaço e a necessidade no formulário de orçamento — nós montamos a combinação certa de serviços.</p>
+    </div>
+    <a href="orcamento.html" class="btn-primary">Solicitar orçamento →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><div class="brand-mark">LG</div><div class="brand-txt">LG Serviços</div></div>
+        <p>Terceirização de serviços, limpeza e conservação para condomínios e empresas do Grande ABC e São Paulo.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Empresa</h4>
+          <a href="sobre.html">Sobre nós</a>
+          <a href="servicos.html">Serviços</a>
+          <a href="orcamento.html">Orçamento</a>
+        </div>
+        <div class="foot-col">
+          <h4>Serviços</h4>
+          <a href="servicos.html#02">Limpeza Pós-Obra</a>
+          <a href="servicos.html#03">Limpeza de Fachada</a>
+          <a href="servicos.html#09">Portaria &amp; Segurança</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 LG Serviços LTDA — CNPJ sob consulta.</span>
+      <div class="social-row">
+        <a href="https://www.facebook.com/LopesGomes-Limpeza-Geral-113189547029598">Facebook</a>
+        <a href="https://www.instagram.com/lgfacilities/">Instagram</a>
+        <a href="https://www.youtube.com/channel/UCiMvJ2pB9KDy-Bc9sAOQAQw">YouTube</a>
+        <a href="https://www.linkedin.com/feed/">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

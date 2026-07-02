@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre nós | LG Serviços</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#eaf1ff;
+  --paper:#060a14;
+  --paper-2:#0c1526;
+  --panel:#0a0f1c;
+  --amber:#3aa0ff;
+  --amber-deep:#7ad6ff;
+  --line: rgba(122,214,255,0.22);
+  --line-soft: rgba(122,214,255,0.10);
+  --text-dim:#8ea0c2;
+  --glow: rgba(58,160,255,0.35);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter', sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:44px 44px;
+  position:relative;
+}
+body::before{
+  content:''; position:fixed; top:-20%; left:-10%; width:60vw; height:60vw; z-index:0; pointer-events:none;
+  background:radial-gradient(circle, var(--glow), transparent 65%);
+  opacity:0.5; filter:blur(40px);
+}
+body::after{
+  content:''; position:fixed; bottom:-25%; right:-15%; width:55vw; height:55vw; z-index:0; pointer-events:none;
+  background:radial-gradient(circle, rgba(122,214,255,0.28), transparent 65%);
+  opacity:0.45; filter:blur(40px);
+}
+h1,h2,h3{ font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em; }
+.mono{ font-family:'JetBrains Mono', monospace; }
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 32px; position:relative; z-index:1;}
+
+header{ position:sticky; top:0; z-index:100; background:rgba(6,10,20,0.72); backdrop-filter:blur(16px); border-bottom:1px solid var(--line); }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 32px; max-width:1180px; margin:0 auto; position:relative; z-index:1; }
+.brand{display:flex; align-items:center; gap:12px;}
+.brand-mark{ width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk'; font-weight:800; font-size:1rem; background:linear-gradient(135deg, var(--amber), var(--amber-deep)); color:#04101f; box-shadow:0 0 24px var(--glow); }
+.brand-txt{font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem; line-height:1.1;}
+.brand-txt small{display:block; font-family:'JetBrains Mono'; font-size:0.62rem; letter-spacing:0.1em; color:var(--text-dim); text-transform:uppercase; font-weight:400; margin-top:2px;}
+nav.links{display:flex; gap:4px; font-family:'JetBrains Mono'; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.04em;}
+nav.links a{padding:8px 16px; border-radius:100px; color:var(--text-dim); transition:background .2s, color .2s;}
+nav.links a:hover, nav.links a.active{background:rgba(122,214,255,0.12); color:var(--amber-deep);}
+.nav-cta{ padding:10px 22px; border-radius:100px; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); color:#04101f; font-family:'JetBrains Mono'; font-weight:600; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.04em; box-shadow:0 0 24px var(--glow); transition:transform .2s, box-shadow .2s; }
+.nav-cta:hover{transform:translateY(-2px); box-shadow:0 4px 30px var(--glow);}
+
+.page-hero{ padding:72px 32px 52px; border-bottom:1px solid var(--line); position:relative; z-index:1; }
+.page-hero-inner{ max-width:1180px; margin:0 auto; }
+.ticket-id{ font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--amber-deep); letter-spacing:0.1em; display:inline-flex; align-items:center; gap:8px; }
+.ticket-id::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--amber-deep); box-shadow:0 0 10px var(--amber-deep); }
+.page-hero h1{ font-size:clamp(2.1rem, 4.6vw, 3.6rem); font-weight:800; line-height:1.05; margin:16px 0 16px; max-width:800px; }
+.page-hero h1 u{ text-decoration:none; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.page-hero p.lead{ color:var(--text-dim); font-size:1.02rem; line-height:1.65; max-width:540px; }
+
+.hero{ padding:80px 32px 0; position:relative; z-index:1; }
+.hero-inner{ max-width:1180px; margin:0 auto; }
+.hero-top{ display:flex; justify-content:space-between; align-items:flex-end; gap:40px; border-bottom:1px solid var(--line); padding-bottom:44px; flex-wrap:wrap; }
+.hero h1{ font-size:clamp(2.4rem, 5.2vw, 4.4rem); font-weight:800; line-height:1.02; margin:18px 0 22px; max-width:840px; }
+.hero h1 u{ text-decoration:none; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero p.lead{ color:var(--text-dim); font-size:1.06rem; line-height:1.7; max-width:500px; margin-bottom:32px; }
+.hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+.btn-primary{ padding:16px 30px; border-radius:100px; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); color:#04101f; font-family:'JetBrains Mono'; font-weight:600; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.04em; display:inline-block; box-shadow:0 0 28px var(--glow); transition:transform .2s, box-shadow .2s; }
+.btn-primary:hover{transform:translateY(-3px); box-shadow:0 8px 34px var(--glow);}
+.btn-ghost{ padding:16px 30px; border-radius:100px; border:1px solid var(--line); color:var(--ink); font-family:'JetBrains Mono'; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.04em; display:inline-block; transition:background .2s, border-color .2s; }
+.btn-ghost:hover{background:rgba(122,214,255,0.08); border-color:var(--amber-deep);}
+
+.hero-stats{ display:grid; grid-template-columns:repeat(4,1fr); }
+.hero-stats div{ border-left:1px solid var(--line); padding:20px 22px; }
+.hero-stats div:first-child{border-left:none;}
+.hero-stats b{ font-family:'Space Grotesk'; font-weight:800; font-size:2.1rem; display:block; background:linear-gradient(120deg, var(--ink), var(--amber-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-stats span{ font-family:'JetBrains Mono'; font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.04em; }
+
+section{ padding:88px 0; border-bottom:1px solid var(--line); position:relative; z-index:1; }
+section:last-of-type{ border-bottom:none; }
+.sec-label{ font-family:'JetBrains Mono'; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--amber-deep); display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.sec-label::before{ content:''; width:26px; height:2px; background:var(--amber-deep); box-shadow:0 0 8px var(--amber-deep); }
+.sec-head h2{ font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; max-width:640px; }
+.sec-head p{ color:var(--text-dim); margin-top:14px; max-width:560px; line-height:1.7; }
+
+.about{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:0; border:1px solid var(--line); border-radius:20px; overflow:hidden; background:rgba(255,255,255,0.02); }
+.about-figure{ padding:44px; border-right:1px solid var(--line); background:linear-gradient(160deg, var(--panel), var(--paper-2)); display:flex; flex-direction:column; justify-content:space-between; }
+.about-figure .founded-label{ font-family:'JetBrains Mono'; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); }
+.about-figure .year{ font-family:'Space Grotesk'; font-size:5rem; font-weight:800; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1; margin-top:10px; }
+.about-figure .year-lbl{ font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--text-dim); margin-top:8px; }
+.founder-list{ margin-top:30px; }
+.founder-list div{ display:flex; justify-content:space-between; padding:12px 0; border-top:1px solid var(--line-soft); font-size:0.85rem; }
+.founder-list div span{ font-family:'JetBrains Mono'; font-size:0.7rem; color:var(--text-dim); text-transform:uppercase; }
+.about-text{ padding:44px 48px; }
+.about-text p{ color:var(--text-dim); line-height:1.8; margin-bottom:16px; font-size:0.98rem; }
+.about-text p b{color:var(--ink);}
+
+.values-grid{ display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); border-top:none; border-radius:0 0 20px 20px; overflow:hidden; background:rgba(255,255,255,0.02); }
+.value-card{ padding:32px; border-right:1px solid var(--line); transition:background .25s; }
+.value-card:hover{ background:rgba(122,214,255,0.06); }
+.value-card:last-child{ border-right:none; }
+.value-card .idx{ font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--amber-deep); }
+.value-card h3{ font-size:1.05rem; font-weight:700; margin:10px 0 8px; }
+.value-card p{ color:var(--text-dim); font-size:0.9rem; line-height:1.6; }
+
+.service-list{ border-top:1px solid var(--line); }
+.service-row{ display:grid; grid-template-columns:70px 1fr 1.4fr; gap:24px; align-items:center; padding:24px 20px; border-bottom:1px solid var(--line); border-radius:12px; transition:background .25s, transform .25s; }
+.service-row .idx{ font-family:'JetBrains Mono'; font-size:0.85rem; color:var(--amber-deep); }
+.service-row h3{ font-size:1.05rem; font-weight:700; }
+.service-row p{ color:var(--text-dim); font-size:0.88rem; line-height:1.6; }
+.service-row:hover{ background:rgba(122,214,255,0.06); transform:translateX(6px); }
+
+.coverage{ display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:20px; overflow:hidden; background:rgba(255,255,255,0.02); }
+.video-frame{ aspect-ratio:16/9; border-right:1px solid var(--line); background:#000; }
+.video-frame iframe{ width:100%; height:100%; border:0; }
+.coverage-text{ padding:48px; display:flex; flex-direction:column; justify-content:center; }
+.stamp{ align-self:flex-start; margin-top:22px; padding:11px 18px; border-radius:100px; border:1px solid var(--line); font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--amber-deep); background:rgba(122,214,255,0.06); }
+
+.client-table{ border-top:1px solid var(--line); border-left:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr); border-radius:16px; overflow:hidden; }
+.client-cell{ border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:28px 20px; font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem; display:flex; align-items:center; justify-content:center; text-align:center; min-height:94px; color:var(--text-dim); transition:color .2s, background .2s; }
+.client-cell:hover{ color:var(--amber-deep); background:rgba(122,214,255,0.06); }
+
+.contact-wrap{ display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:20px; overflow:hidden; background:rgba(255,255,255,0.02); }
+.contact-info{ padding:48px; border-right:1px solid var(--line); background:linear-gradient(160deg, var(--panel), var(--paper-2)); }
+.contact-info h2{ font-size:1.9rem; margin-bottom:14px; }
+.contact-info p{ color:var(--text-dim); line-height:1.7; margin-bottom:26px; }
+.info-line{ padding:12px 0; border-top:1px solid var(--line-soft); font-size:0.9rem; }
+.info-line .k{ font-family:'JetBrains Mono'; font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--amber-deep); display:block; margin-bottom:4px; }
+form{ padding:48px; display:flex; flex-direction:column; gap:16px; }
+form label{ font-family:'JetBrains Mono'; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-dim); margin-bottom:-10px; }
+form input, form textarea, form select{ background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:10px; padding:12px 14px; color:var(--ink); font-family:'Inter'; font-size:0.95rem; }
+form input:focus, form textarea:focus, form select:focus{ outline:none; border-color:var(--amber-deep); box-shadow:0 0 0 3px rgba(122,214,255,0.15); }
+form button{ margin-top:8px; padding:16px; border-radius:10px; border:none; cursor:pointer; background:linear-gradient(120deg, var(--amber), var(--amber-deep)); color:#04101f; font-family:'JetBrains Mono'; font-weight:700; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.05em; box-shadow:0 0 24px var(--glow); transition:transform .2s; }
+form button:hover{ transform:translateY(-2px); }
+
+.faq-list{ border-top:1px solid var(--line); }
+.faq-row{ padding:22px 0; border-bottom:1px solid var(--line); }
+.faq-row h3{ font-size:0.98rem; font-weight:700; margin-bottom:8px; }
+.faq-row p{ color:var(--text-dim); font-size:0.9rem; line-height:1.6; max-width:640px; }
+
+footer{ padding:44px 0 28px; position:relative; z-index:1; }
+.foot-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:26px; margin-bottom:30px; }
+.foot-brand p{ color:var(--text-dim); font-size:0.84rem; margin-top:10px; max-width:280px; line-height:1.6; }
+.foot-cols{ display:flex; gap:60px; flex-wrap:wrap; font-family:'JetBrains Mono'; }
+.foot-col h4{ font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); margin-bottom:14px; }
+.foot-col a{ display:block; font-size:0.82rem; margin-bottom:10px; color:var(--text-dim); }
+.foot-col a:hover{ color:var(--amber-deep); }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-top:1px solid var(--line); padding-top:22px; font-family:'JetBrains Mono'; font-size:0.72rem; color:var(--text-dim); }
+.social-row{ display:flex; gap:0; }
+.social-row a{ padding:6px 14px; border-left:1px solid var(--line-soft); text-transform:uppercase; color:var(--text-dim); }
+.social-row a:hover{ color:var(--amber-deep); }
+
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+@media(max-width:900px){
+  nav.links{ display:none; }
+  .about{ grid-template-columns:1fr; }
+  .about-figure{ border-right:none; border-bottom:1px solid var(--line); }
+  .values-grid{ grid-template-columns:1fr; }
+  .value-card{ border-right:none; border-bottom:1px solid var(--line); }
+  .service-row{ grid-template-columns:44px 1fr; }
+  .service-row p{ grid-column:2/3; }
+  .coverage{ grid-template-columns:1fr; }
+  .video-frame{ border-right:none; border-bottom:1px solid var(--line); }
+  .client-table{ grid-template-columns:repeat(2,1fr); }
+  .contact-wrap{ grid-template-columns:1fr; }
+  .contact-info{ border-right:none; border-bottom:1px solid var(--line); }
+  .hero-stats{ grid-template-columns:repeat(2,1fr); }
+  .hero-stats div:nth-child(3){ border-left:none; }
+}
+@media(max-width:560px){
+  .wrap{ padding:0 18px; }
+  .hero{ padding:56px 18px 0; }
+  .page-hero{ padding:48px 18px 40px; }
+}
+@media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">LG</div>
+      <div class="brand-txt">LG Serviços<small>Facilities &amp; Conservação</small></div>
+    </a>
+    <nav class="links">
+      <a href="index.html" class="">Início</a>
+      <a href="sobre.html" class="active">Sobre nós</a>
+      <a href="servicos.html" class="">Ver serviços</a>
+      <a href="orcamento.html" class="">Orçamento</a>
+    </nav>
+    <a href="orcamento.html" class="nav-cta">Solicitar orçamento</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner reveal in">
+    <span class="ticket-id">FICHA CADASTRAL DA EMPRESA</span>
+    <h1>Começamos na linha de <u>frente</u> — e seguimos com a mesma disposição.</h1>
+    <p class="lead">Conheça a história, os fundadores e os valores por trás da operação LG.</p>
+  </div>
+</section>
+
+<section id="historia">
+  <div class="wrap">
+    <div class="about reveal">
+      <div class="about-figure">
+        <div>
+          <span class="founded-label">Data de abertura</span>
+          <div class="year">20/05</div>
+          <div class="year-lbl">2020 — no início da pandemia da COVID-19</div>
+        </div>
+        <div class="founder-list">
+          <div>Matheus Lopes<span>Sócio-fundador</span></div>
+          <div>Silas Gomes<span>Sócio-fundador</span></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="sec-label">Nossa história</span>
+        <h2 style="font-size:1.9rem; font-weight:700; margin-bottom:20px;">Fundada em meio à crise, construída com presença</h2>
+        <p>A LG Serviços é uma empresa jovem fundada em <b>20 de maio de 2020</b>. Enquanto o país fechava as portas por causa da pandemia, montamos nossa equipe de sanitização e limpeza e fomos para o combate direto ao vírus, atuando na linha de frente quando a maioria recuava.</p>
+        <p>De lá pra cá, seguimos entregando terceirização de serviços e facilities com o mesmo comprometimento do primeiro dia: presença, técnica e responsabilidade em cada ambiente que passamos.</p>
+        <p>Hoje atendemos condomínios, redes de varejo e casas de entretenimento no Grande ABC e em São Paulo, com equipe própria — sem intermediários.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="valores" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Como operamos</span>
+      <h2>Três compromissos que não abrimos mão</h2>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:0;">
+    <div class="values-grid reveal">
+      <div class="value-card">
+        <span class="idx mono">EQUIPE PRÓPRIA</span>
+        <h3>Sem terceirização em cascata</h3>
+        <p>Quem atende seu condomínio ou empresa é contratado, treinado e supervisionado diretamente por nós.</p>
+      </div>
+      <div class="value-card">
+        <span class="idx mono">PADRÃO ÚNICO</span>
+        <h3>Mesma técnica em todo lugar</h3>
+        <p>Procedimentos padronizados de limpeza, portaria e segurança, independente do tamanho do contrato.</p>
+      </div>
+      <div class="value-card">
+        <span class="idx mono">PROXIMIDADE</span>
+        <h3>Atuação no Grande ABC e SP</h3>
+        <p>Sede em São Bernardo do Campo com equipe pronta para atender toda a região.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><div class="brand-mark">LG</div><div class="brand-txt">LG Serviços</div></div>
+        <p>Terceirização de serviços, limpeza e conservação para condomínios e empresas do Grande ABC e São Paulo.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Empresa</h4>
+          <a href="sobre.html">Sobre nós</a>
+          <a href="servicos.html">Serviços</a>
+          <a href="orcamento.html">Orçamento</a>
+        </div>
+        <div class="foot-col">
+          <h4>Serviços</h4>
+          <a href="servicos.html#02">Limpeza Pós-Obra</a>
+          <a href="servicos.html#03">Limpeza de Fachada</a>
+          <a href="servicos.html#09">Portaria &amp; Segurança</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 LG Serviços LTDA — CNPJ sob consulta.</span>
+      <div class="social-row">
+        <a href="https://www.facebook.com/LopesGomes-Limpeza-Geral-113189547029598">Facebook</a>
+        <a href="https://www.instagram.com/lgfacilities/">Instagram</a>
+        <a href="https://www.youtube.com/channel/UCiMvJ2pB9KDy-Bc9sAOQAQw">YouTube</a>
+        <a href="https://www.linkedin.com/feed/">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
